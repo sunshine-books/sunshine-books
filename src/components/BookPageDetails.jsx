@@ -61,17 +61,21 @@ function BookPageDetails() {
                 <p>Price: {book["retail-price"]}</p>
                 <p>Synopsis: {book.synopsis}</p>
             </div>
+
             <br></br>
+
             <Link to={`/NewBook`}>
                 <button>Register a new book</button>
             </Link>
 
             <br></br>
 
-            <Link to={`/projects/edit/${bookId}`}>
+            <Link to={`/books/edit/${bookId}`}>
                 <button>Edit</button>
             </Link>
+
             <br></br>
+
             <button onClick={deleteBook}>Delete</button>
         </div>
     )
