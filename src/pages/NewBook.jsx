@@ -87,7 +87,7 @@ function NewBook() {
                 <label className="label-form">
                     Cover Image:
                     <input
-                        type="text"
+                        type="url"
                         name="cover-img"
                         placeholder="url for the cover..."
                         value={URL}
