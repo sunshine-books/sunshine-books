@@ -1,9 +1,9 @@
 import { Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
-import SearchBooks from "./SearchBooks";
+import SearchBooks from "./SearchBooks.jsx";
 
 
-function Navbar() {
+function Navbar({booksToDisplay}) {
     let navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false); // Estado para el menú desplegable
    
@@ -39,7 +39,7 @@ function Navbar() {
                     <Link to="/" className="hover:text-gray-700 px-3 py-2 rounded transition">Home</Link>
                     <br></br>
                     {/* INPUT TO SEARCH */}
-                    <SearchBooks />
+                    <SearchBooks booksToDisplay={booksToDisplay} />
               
                     <Link to="/about" className="hover:text-gray-700 px-3 py-2 rounded transition">About</Link>
                     <br></br>

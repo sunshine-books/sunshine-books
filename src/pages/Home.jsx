@@ -9,29 +9,10 @@ import SearchBooks from "../components/SearchBooks";
 
 
 
-function Home() {
+function Home({booksToDisplay}) {
 
 
-    const [booksToDisplay, setBooksToDisplay] = useState(null);
-
-
-    //Getting the data from the API and convert to array
-
-
-    useEffect(() => {
-        axios.get(`${API_URL}/books.json`)
-            .then(response => {
-                const booksObj = response.data;
-                const booksArr = Object.keys(booksObj).map((id) => ({
-                    id,
-                    ...booksObj[id]
-                }))
-                setBooksToDisplay(booksArr);
-                console.log(booksArr)
-            })
-            .catch(e => console.log("Error getting books from the API...", e));
-    }, []);
-
+    
 
     //loading items 
     if (booksToDisplay === null) {
@@ -80,7 +61,7 @@ function Home() {
                     <div className="flex flex-col p-8 h-48 justify-center text-center text-xl font-bold gap-8 rounded shadow-xl">
                          {/* <ShowBooks /> */}
                         Search for a book in our collection:
-                        <SearchBooks  />
+                        <SearchBooks booksToDisplay={booksToDisplay} />
                         </div>
                 </div>
                 <ShowBooks arrOfBooks={booksToDisplay} latestBook={latestBook} />
