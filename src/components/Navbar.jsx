@@ -1,5 +1,6 @@
 import { Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
+import SearchBooks from "./SearchBooks";
 
 
 function Navbar() {
@@ -38,14 +39,7 @@ function Navbar() {
                     <Link to="/" className="hover:text-gray-700 px-3 py-2 rounded transition">Home</Link>
                     <br></br>
                     {/* INPUT TO SEARCH */}
-                    <div className="flex gap-0">
-                        <input
-                        type="text"
-                        placeholder="Search your book..."
-                        className="bg-gray-100 px-4 py-2 rounded-l-lg text-black"
-                        />
-                        <button onClick={()=>{navigate("/searchbooks")} } className="bg-orange-500 text-white px-4 py-2 rounded-r-lg">Search</button>
-                    </div>
+                    <SearchBooks />
               
                     <Link to="/about" className="hover:text-gray-700 px-3 py-2 rounded transition">About</Link>
                     <br></br>

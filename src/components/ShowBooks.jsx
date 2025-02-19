@@ -16,14 +16,14 @@ function ShowBooks(props) {
     const booksToShow = shuffleArray([...booksWithoutLatest]).slice(0, 2);
     
     return(
-        <div className="books-list">
+        <div className="flex flex-col md:flex-row gap-16">
             {booksToShow.map((booksDetails) => {
                 console.log(booksDetails)
                 return (
                     <div className="book-card" key={booksDetails.id} >
                         <h1 className="book-title">{booksDetails.title}</h1>
                         <img src={booksDetails["cover-img"]} alt={booksDetails.title} className="object-cover" />
-                        <Link class="btn-green" to="/books/:bookId">More details</Link>
+                        <Link className="btn-green" to="/books/:bookId">More details</Link>
                     </div>
                 );
             })}

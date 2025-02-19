@@ -4,6 +4,8 @@ import axios from "axios";
 import '../App.css'
 import { Link } from "react-router";
 import ShowBooks from "../components/ShowBooks";
+import SearchBook from "./SearchBook";
+import SearchBooks from "../components/SearchBooks";
 
 
 
@@ -14,9 +16,6 @@ function Home() {
 
 
     //Getting the data from the API and convert to array
-
-
-
 
 
     useEffect(() => {
@@ -53,7 +52,8 @@ function Home() {
 
     //items-center md:items-start w-full md:w-auto text-center md:text-left
     return (
-        <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-4 p-2 md:p-4">
+
+        <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-4 p-4">
             {/* Show the latest book */}
             <div className="latest-book"
                 style={{ backgroundImage: `url(${latestBook["cover-img"]})` }}>
@@ -67,7 +67,6 @@ function Home() {
                         More details
                     </Link>
                 </div>
-
             </div>
 
             {/* Show the rest of the books */}
@@ -76,10 +75,21 @@ function Home() {
                     Do you want to add a new book to our collection?
                     <Link to="/NewBook" className="btn-orange">Register a Book</Link>
                 </div>
+                {/* Do the search */}
+                <div className="flex flex-col content-between gap-8">
+                    <div className="flex flex-col p-8 h-48 justify-center text-center text-xl font-bold gap-8 rounded shadow-xl">
+                         {/* <ShowBooks /> */}
+                        Search for a book in our collection:
+                        <SearchBooks  />
+                        </div>
+                </div>
                 <ShowBooks arrOfBooks={booksToDisplay} latestBook={latestBook} />
+
             </div>
+
         </div>
-        
+
+
     );
 }
 
