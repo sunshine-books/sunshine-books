@@ -23,7 +23,7 @@ function ShowBooks(props) {
                     <div className="book-card" key={booksDetails.id} >
                         <h1 className="book-title">{booksDetails.title}</h1>
                         <img src={booksDetails["cover-img"]} alt={booksDetails.title} className="object-cover" />
-                        <Link class="btn-green" to="/books/:bookId">More details</Link>
+                        <Link class="btn-green" to={`/books/${latestBook.id}`}>More details</Link>
                     </div>
                 );
             })}
