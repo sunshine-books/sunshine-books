@@ -52,12 +52,13 @@ function NewBook() {
     }
 
     return (
-        <div className="AddNewBook">
-            <h3>Register New Book</h3>
+        <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full p-4">
+            <h3 className="text-2xl">Register New Book</h3>
 
-            <form onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-2 rounded-2xl overflow-hidden bg-white p-8 space-y-4 max-w-4xl mx-auto"
+                onSubmit={handleSubmit}>
 
-                <label>
+                <label className="label-form">
                     Title:
                     <input
                         type="text"
@@ -65,10 +66,11 @@ function NewBook() {
                         placeholder="enter the title"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-                <label>
+                <label className="label-form">
                     Author:
                     <input
                         type="text"
@@ -76,10 +78,11 @@ function NewBook() {
                         placeholder="name of the author"
                         value={author}
                         onChange={(e) => { setAuthor(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-                <label>
+                <label className="label-form">
                     Cover Image:
                     <input
                         type="text"
@@ -87,10 +90,11 @@ function NewBook() {
                         placeholder="url for the cover..."
                         value={URL}
                         onChange={(e) => { setURL(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-                <label>
+                <label className="label-form">
                     Genre:
                     <input
                         type="text"
@@ -98,10 +102,11 @@ function NewBook() {
                         placeholder="genre"
                         value={genre}
                         onChange={(e) => { setGenre(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-                <label>
+                <label className="label-form">
                     Publish date :
                     <input
                         type="number"
@@ -109,10 +114,11 @@ function NewBook() {
                         placeholder="the year"
                         value={publishDate}
                         onChange={(e) => { setPublishDate(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-                <label>
+                <label className="label-form">
                     Rating :
                     <input
                         type="number"
@@ -120,10 +126,11 @@ function NewBook() {
                         placeholder="rating"
                         value={rating}
                         onChange={(e) => { setRating(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-                <label>
+                <label className="label-form">
                     Retail price :
                     <input
                         type="number"
@@ -131,11 +138,12 @@ function NewBook() {
                         placeholder="price of the book"
                         value={retailPrice}
                         onChange={(e) => { setRetailPrice(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-                <fieldset>
-                    <legend>Format</legend>
+                <fieldset className="flex flex-col">
+                    <legend className="label-form my-4">Format</legend>
 
                     <label>
                         Print
@@ -158,6 +166,7 @@ function NewBook() {
                                 ...prevState,
                                 ebook: !prevState.ebook
                             }))}
+                           
                         />
                     </label>
 
@@ -170,22 +179,26 @@ function NewBook() {
                                 ...prevState,
                                 audiobook: !prevState.audiobook
                             }))}
+                            
                         />
                     </label>
                 </fieldset>
 
-                <label>
+                <label className="flex flex-row gap-2">
                     Available:
+
+                    {isAvailable ? "Yes" : "No"}  {/* Show Yes if checked, No if unchecked */}
                     <input
                         type="checkbox"
                         checked={isAvailable} // Reflect state in checkbox
                         onChange={(e) => setIsAvailable(e.target.checked)} // Toggle state on change
                     />
-                    {isAvailable ? "Yes" : "No"}  {/* Show Yes if checked, No if unchecked */}
-                </label>
-                
 
-                <label>
+
+                </label>
+
+
+                <label className="label-form">
                     Synopsis:
                     <input
                         type="textarea"
@@ -193,11 +206,12 @@ function NewBook() {
                         placeholder="enter the synopsis"
                         value={synopsis}
                         onChange={(e) => { setSynopsis(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
 
-                <label>
+                <label className="label-form">
                     ISBN:
                     <input
                         type="number"
@@ -205,11 +219,11 @@ function NewBook() {
                         placeholder="name of the ISBN"
                         value={ISBN}
                         onChange={(e) => { setISBN(e.target.value) }}
+                        className="input md:w-screen"
                     />
                 </label>
 
-
-                <button>Create</button>
+                <button className="btn-green">Create</button>
             </form>
         </div>
     )

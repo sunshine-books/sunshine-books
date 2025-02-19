@@ -37,4 +37,10 @@ body {
 .book-author {
     @apply text-lg text-gray-500;
   }
+.label-form {
+    @apply flex flex-col font-bold
+}
+.input {
+    @apply gap-2 bg-gray-100 px-4 py-2 rounded text-black
+}
 
