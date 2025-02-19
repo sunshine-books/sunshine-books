@@ -16,20 +16,23 @@ import SearchBook from './pages/SearchBook.jsx'
 
 
 
+
 function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
+     
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/books/:bookId" element={<BookPageDetails />} />
+          <Route path="/newBook" element={<NewBook />} />
+          <Route path="/searching" element={<SearchBook />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+     
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/books/:bookId" element={<BookPageDetails />} />
-        <Route path="/newBook" element={<NewBook />} />
-        <Route path="/searching" element={<SearchBook />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
 
       <Footer />
     </div>

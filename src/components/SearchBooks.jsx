@@ -8,6 +8,8 @@ function SearchBooks(props) {
     let navigate = useNavigate();
     const [searchBook, setSearchBook] = useState("");
 
+    
+
     const handleSearch = () => {
         if (searchBook.trim()) {
             navigate(`/searching?query=${encodeURIComponent(searchBook)}`);
