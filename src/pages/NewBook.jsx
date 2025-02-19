@@ -6,7 +6,6 @@ import { API_URL } from "../config/api";
 
 
 
-
 function NewBook() {
 
     const [title, setTitle] = useState("");
@@ -197,10 +196,7 @@ function NewBook() {
                         onChange={(e) => setIsAvailable(e.target.checked)} // Toggle state on change
                         required
                     />
-
-
                 </label>
-
 
                 <label className="label-form">
                     Synopsis:
@@ -213,7 +209,6 @@ function NewBook() {
                         className="input md:w-screen"
                     />
                 </label>
-
 
                 <label className="label-form">
                     ISBN:

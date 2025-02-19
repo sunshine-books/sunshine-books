@@ -4,7 +4,6 @@ import axios from "axios";
 import '../App.css'
 import { Link } from "react-router";
 import ShowBooks from "../components/ShowBooks";
-import SearchBook from "./SearchBook";
 import SearchBooks from "../components/SearchBooks";
 
 
@@ -27,7 +26,6 @@ function Home() {
                     ...booksObj[id]
                 }))
                 setBooksToDisplay(booksArr);
-                console.log(booksArr)
             })
             .catch(e => console.log("Error getting books from the API...", e));
     }, []);
@@ -46,9 +44,6 @@ function Home() {
     const shuffleArray = (array) => {
         return array.sort(() => Math.random() - 0.5);
     };
-
-    // Shuffle the books array and slice the first 3 books
-    const booksToShow = shuffleArray([...booksToDisplay]).slice(0, 4);
 
     //items-center md:items-start w-full md:w-auto text-center md:text-left
     return (
@@ -84,12 +79,8 @@ function Home() {
                         </div>
                 </div>
                 <ShowBooks arrOfBooks={booksToDisplay} latestBook={latestBook} />
-
             </div>
-
         </div>
-
-
     );
 }
 
