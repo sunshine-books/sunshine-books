@@ -34,12 +34,12 @@ function EditBook() {
                 setAuthor(response.data.author);
                 setISBN(response.data.ISBN)
                 setFormat(response.data.format)
-                setIsAvailable(response.data.setIsAvailable)
-                setURL(response.data.URL)
+                setIsAvailable(response.data["availability-status"])
+                setURL(response.data["cover-img"])
                 setGenre(response.data.genre)
-                setPublishDate(response.data.publishDate)
+                setPublishDate(response.data["publish-date"])
                 setRating(response.data.rating)
-                setRetailPrice(response.data.retailPrice)
+                setRetailPrice(response.data["retail-price"])
                 setSynopsis(response.data.synopsis)
             })
             .catch((error) => console.log("Error getting project details from the API...", error));
