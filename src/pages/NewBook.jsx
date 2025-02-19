@@ -115,7 +115,7 @@ function NewBook() {
                         name="publish-date"
                         placeholder="the year"
                         value={publishDate}
-                        onChange={(e) => { setPublishDate(e.target.value) }}
+                        onChange={(e) => { setPublishDate(Number(e.target.value)) }}
                         className="input md:w-screen"
                     />
                 </label>
@@ -127,7 +127,7 @@ function NewBook() {
                         name="rating"
                         placeholder="rating"
                         value={rating}
-                        onChange={(e) => { setRating(e.target.value) }}
+                        onChange={(e) => { setRating(Number(e.target.value)) }}
                         className="input md:w-screen"
                     />
                 </label>
@@ -139,7 +139,7 @@ function NewBook() {
                         name="retail-price"
                         placeholder="price of the book"
                         value={retailPrice}
-                        onChange={(e) => { setRetailPrice(e.target.value) }}
+                        onChange={(e) => { setRetailPrice(Number(e.target.value)) }}
                         className="input md:w-screen"
                         required
                     />
@@ -222,7 +222,7 @@ function NewBook() {
                         name="ISBN"
                         placeholder="name of the ISBN"
                         value={ISBN}
-                        onChange={(e) => { setISBN(e.target.value) }}
+                        onChange={(e) => { setISBN(Number(e.target.value)) }}
                         className="input md:w-screen"
                         required
                     />
