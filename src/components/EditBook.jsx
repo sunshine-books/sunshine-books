@@ -253,6 +253,7 @@ function EditBook() {
                 </label>
 
                 <button className="btn-green">Edit</button>
+                <button className="btn-green">Cancel</button>
             </form>
         </div>
     )
