@@ -67,6 +67,7 @@ function NewBook() {
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -79,6 +80,7 @@ function NewBook() {
                         value={author}
                         onChange={(e) => { setAuthor(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -139,6 +141,7 @@ function NewBook() {
                         value={retailPrice}
                         onChange={(e) => { setRetailPrice(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -192,6 +195,7 @@ function NewBook() {
                         type="checkbox"
                         checked={isAvailable} // Reflect state in checkbox
                         onChange={(e) => setIsAvailable(e.target.checked)} // Toggle state on change
+                        required
                     />
 
 
@@ -220,6 +224,7 @@ function NewBook() {
                         value={ISBN}
                         onChange={(e) => { setISBN(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 

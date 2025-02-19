@@ -86,6 +86,7 @@ function EditBook() {
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -98,6 +99,7 @@ function EditBook() {
                         value={author}
                         onChange={(e) => { setAuthor(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -110,6 +112,7 @@ function EditBook() {
                         value={URL}
                         onChange={(e) => { setURL(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -122,6 +125,7 @@ function EditBook() {
                         value={genre}
                         onChange={(e) => { setGenre(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -134,6 +138,7 @@ function EditBook() {
                         value={publishDate}
                         onChange={(e) => { setPublishDate(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -146,6 +151,7 @@ function EditBook() {
                         value={rating}
                         onChange={(e) => { setRating(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -158,6 +164,7 @@ function EditBook() {
                         value={retailPrice}
                         onChange={(e) => { setRetailPrice(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -211,6 +218,7 @@ function EditBook() {
                         type="checkbox"
                         checked={isAvailable} // Reflect state in checkbox
                         onChange={(e) => setIsAvailable(e.target.checked)} // Toggle state on change
+                        required
                     />
 
 
@@ -226,6 +234,7 @@ function EditBook() {
                         value={synopsis}
                         onChange={(e) => { setSynopsis(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
@@ -239,6 +248,7 @@ function EditBook() {
                         value={ISBN}
                         onChange={(e) => { setISBN(e.target.value) }}
                         className="input md:w-screen"
+                        required
                     />
                 </label>
 
