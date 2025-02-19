@@ -4,8 +4,6 @@ import { API_URL } from "../config/api";
 import { useEffect, useState } from "react";
 
 
-
-
 function BookPageDetails() {
 
     const [book, setBook] = useState(null);
@@ -51,7 +49,6 @@ function BookPageDetails() {
 
             {/* project details */}
             <div key={book.id} >
-
                 <img src={book["cover-img"]} alt={book.title} />
                 <h1 className="book-title">{book.title}</h1>
                 <h2>Author: {book.author}</h2>
