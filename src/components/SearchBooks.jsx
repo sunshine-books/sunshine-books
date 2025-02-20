@@ -18,12 +18,9 @@ function SearchBooks({booksToDisplay}) {
     }, [booksToDisplay])
 
    return booksToDisplay && books &&  (
-        <Select options={books}  onChange={ handleChange} placeholder={"Buscar libro 📚"}/>
+        <Select options={books}  onChange={ handleChange} placeholder={"Search by Title 📚"}/>
     )
    
-
-
-
   
 }
 

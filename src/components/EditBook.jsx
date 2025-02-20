@@ -116,15 +116,19 @@ function EditBook({sendClickEventToParent}) {
     }
 
     const handleNavigateHome = () => {
-        navigate("/"); // Programmatically navigate to the home route
+        navigate(`/books/${bookId}`);
       };
 
     return(
         <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full pt-24">
-            <div className="flex flex-col md:flex-row items-center justify-items-stretch">
-                <h1 className="text-2xl ">Edit Details</h1>
-                    
+             <h1 className="text-2xl ">Edit Details</h1>
+            <div className="flex flex-row -sm:flex-col justify-center items-center w-screen md:gap-24"> 
+                <button onClick={()=>{navigate(`/`)}} className="btn-green">Back Home</button>
+               
+                <button onClick={handleNavigateHome} className="btn-red">Cancel</button>
+                
             </div>
+            
 
             {/* Form to edit */}
             <form className="flex flex-col md:flex-row w-screen justify-center items-start  md:gap-4 p-4"
@@ -325,6 +329,7 @@ function EditBook({sendClickEventToParent}) {
                     
                 </div>
             </form>
+           
 
             
         </div>
