@@ -35,6 +35,33 @@ function BookPageDetails() {
             .catch((error) => console.log("Error deleting the book...", error));
     }
 
+    // const deleteBook = () => {
+    //     axios.delete(`${API_URL}/books/${bookId}.json`)
+    //     .then(response => {
+    //         const getBooksToDisplay = async () => {
+    //             try {
+    //               const response = await axios.get(`${API_URL}/books.json`)
+    //               const booksObj = response.data;
+    //               const booksArr = Object.keys(booksObj).map((id) => ({
+    //                   id,
+    //                   ...booksObj[id]
+    //               }))
+    //                  sendClickEventToParent(booksArr)
+    //                 console.log('books array after get:',booksArr)
+    //             }
+    //             catch(error){
+    //               console.log("ërror occured:",error)
+    //             }
+    //           }
+
+    //           getBooksToDisplay()
+
+           
+    //         navigate(`/`);
+    //     })
+    //         .catch((error) => console.log("Error deleting the book...", error));
+    // }
+
 
     //loading items 
     if (book === null) {
