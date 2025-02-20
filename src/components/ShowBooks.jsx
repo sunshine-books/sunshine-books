@@ -16,23 +16,23 @@ function ShowBooks(props) {
     const booksToShow = shuffleArray([...booksWithoutLatest]).slice(0, 2);
     
     return(
-        <div className="flex flex-col justify-center md:flex-row gap-16">
+        <div className="flex flex-col justify-center items center md:flex-row gap-16">
             {booksToShow.map((booksDetails) => {
                 console.log(booksDetails)
                 return (
-                    <div className="flex flex-col gap-4 overflow-hidden text-wrap bg-white" key={booksDetails.id}>
-                        <h1 className="text-xl  max-w-max text-wrap break-word">{booksDetails.title}</h1>
+                    <div lang="en" className="flex flex-col gap-4 overflow-hidden text-wrap bg-white hyphens-auto" key={booksDetails.id}>
+                        <h1 className="font-bold text-xl w-full ">{booksDetails.title}</h1>
                     
                     {/* Image Wrapper */}
-                    <div className="relative w-center">
+                    <div className="relative flex flex-row">
                         <img 
                             src={booksDetails["cover-img"]} 
                             alt={booksDetails.title} 
-                            className="max-h-fit max-w-fit object-cover"
+                            className="max-h-64 max-w-64 object-contain"
                         />
                         <Link 
                             to={`/books/${booksDetails.id}`}
-                            className="absolute bottom-4 left-1/2 -translate-x-1/2 btn-green text-nowrap"
+                            className="absolute btn-green bottom-0"
                         >
                             More details
                         </Link>

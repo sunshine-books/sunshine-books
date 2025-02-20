@@ -10,16 +10,16 @@ body {
 
   }
 .btn-green{
-    @apply text-sm text-white font-bold  text-nowrap text-center block bg-green-600 self-center  px-6 py-2 mx-4 my-4 rounded-full transition
+    @apply text-white font-bold  text-nowrap text-center block bg-green-600 self-center  px-6 py-2 mx-4 my-4 rounded-full transition
 }
 .btn-green:hover {
     @apply bg-green-800;
 }
 .btn-orange{
-    @apply text-sm text-white font-bold text-center block bg-orange-500 self-center  px-6 py-2  rounded-full transition
+    @apply text-white font-bold  text-nowrap text-center block bg-orange-400 self-center  px-6 py-2 mx-4 my-4 rounded-full transition
 }
 .btn-red {
-    @apply text-sm text-white font-bold  text-center block bg-red-600 self-center  px-6 py-2 mx-4 my-4 rounded-full transition
+    @apply  text-white font-bold  text-center block bg-red-600 self-center  px-6 py-2 mx-4 my-4 rounded-full transition
 }
 .btn-red:hover{
     @apply bg-red-700
@@ -49,4 +49,6 @@ body {
 .input {
     @apply gap-2 bg-gray-100 px-4 py-2 rounded text-black  
 }
-
+.inline{
+    @apply flex flex-col md:flex-row
+}
