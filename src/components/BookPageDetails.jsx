@@ -45,26 +45,28 @@ function BookPageDetails() {
 
 
     return (
-        <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full md: p-4">
+        // <div className="flex flex-col justify-center items-center min-h-screen p-8 max-w-2xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center">
+            <div className="mt-16 md:mt-24 p-8 md:max-w-lvh">
+                <h1 className="text-4xl md:text-7xl font-bold">{book.title}</h1>
+                <h2 className="text-md md:text-2xl font-bold">by: {book.author}</h2>
+                {/* project details */}
+                <div className="flex flex-col md:flex-row gap-2 md:gap-8 mt-4" key={book.id} >
+                    <img className="w-xs md:w-md object-cover" src={book["cover-img"]} alt={book.title} />
+                    <div className="gap-4 w-xs md:w-screen">
 
-            {/* project details */}
-            <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-4 p-4" key={book.id} >
-                <img className="w-sm object-cover" src={book["cover-img"]} alt={book.title} />
-                <div className="gap-4">
-                    <h1 className="book-title">{book.title}</h1>
-                    <h2 className="font-bold">Author: </h2><p className=""> {book.author}</p>
-                    <p>Genre: {book.genre}</p>
-                    <p>Publish Date: {book["publish-date"]}</p>
-                    <p>Rating: {book.rating}</p>
-                    <p>Price: {book["retail-price"]}</p>
-                    <p className="text-wrap">Synopsis: {book.synopsis}</p>
-                    <Link to={`/books/edit/${bookId}`}>
-                        <button  className="btn-green hover:bg-green-800" >Edit</button>
-                    </Link>
-                    <button className="btn-red hover:bg-green-800" onClick={deleteBook}>Delete</button>
+                        <p className="font-bold" >Genre: </p> <p>{book.genre}</p>
+                        <p className="font-bold" >Publish Date: {book["publish-date"]}</p>
+                        <p className="font-bold" >Rating: {book.rating}</p>
+                        <p className="font-bold" >Price: {book["retail-price"]}</p>
+                        <p className="text-wrap break-all">Synopsis: {book.synopsis}</p>
+                        <Link to={`/books/edit/${bookId}`}>
+                            <button className="btn-green hover:bg-green-800" >Edit</button>
+                        </Link>
+                        <button className="btn-red hover:bg-green-800" onClick={deleteBook}>Delete</button>
+                    </div>
+
                 </div>
-                
-            </div>
                 <div className="flex flex-col content-between p-8 gap-8">
                     <div className="flex flex-col p-4 h-48 justify-center text-center text-2xl font-bold gap-8 rounded shadow-xl">
                         Do you want to add a new book to our collection?
@@ -72,6 +74,7 @@ function BookPageDetails() {
                     </div>
                 </div>
 
+            </div>
         </div>
     )
 }

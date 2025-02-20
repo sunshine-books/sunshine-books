@@ -56,6 +56,7 @@ function NewBook() {
 
             <form className="flex flex-col-reverse md:flex-row w-screen justify-center items-start pt-16 md:pt-24 md:gap-4 p-4"
                 onSubmit={handleSubmit}>
+                 {/*Img layout */}
                 <div>
                     <label className="label-form">
                         Cover Image:
@@ -81,7 +82,7 @@ function NewBook() {
                     )}
 
                 </div>
-
+                {/*Info layout */}
                 <div>
                     <label className="label-form">
                         Title:

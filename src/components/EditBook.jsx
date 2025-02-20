@@ -65,27 +65,23 @@ function EditBook() {
 
         axios.put(`${API_URL}/books/${bookId}.json`, newDetails)
             .then(response => {
-                navigate(`/`);
+                navigate(`/books/${bookId}`);
             })
             .catch(e => console.log("Error creating a new project...", e));
     }
 
     return(
-        <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full p-16">
+        <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full pt-24">
             <div className="flex flex-col md:flex-row items-center justify-items-stretch">
                 <h1 className="text-2xl ">Edit Details</h1>
-                <div className="flex flex-row justify-end">
-                    <button className="btn-green">Save Changes</button>
-                    <button className="btn-red">Cancel</button>
-                </div>
                     
             </div>
 
             {/* Form to edit */}
-            <form className="flex flex-col w-screen justify-center items-start pt-16 md:pt-24 md:gap-4 p-4"
+            <form className="flex flex-col md:flex-row w-screen justify-center items-start  md:gap-4 p-4"
                 onSubmit={handleSubmit}>
                 <div>
-                    
+                    {/*Img layout */}
                     <label className="label-form">
                         Cover Image:
                         <input
@@ -94,7 +90,7 @@ function EditBook() {
                             placeholder="url for the cover..."
                             value={URL}
                             onChange={(e) => { setURL(e.target.value) }}
-                            className="input md:w-screen"
+                            className="input w-xs md:w-xl"
                             required
                         />
                     </label>
@@ -111,18 +107,20 @@ function EditBook() {
                     )}
                 </div>
 
-                <label className="label-form">
-                    Title:
-                    <input
+                 {/*Info layout */}
+                <div> 
+                    <label className="label-form">
+                        Title:
+                        <input
                         type="text"
                         name="title"
                         placeholder="enter the title"
                         value={title}
                         onChange={(e) => { setTitle(e.target.value) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
-                    />
-                </label>
+                        />
+                    </label>
 
                 <label className="label-form">
                     Author:
@@ -132,7 +130,7 @@ function EditBook() {
                         placeholder="name of the author"
                         value={author}
                         onChange={(e) => { setAuthor(e.target.value) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
                     />
                 </label>
@@ -145,7 +143,7 @@ function EditBook() {
                         placeholder="genre"
                         value={genre}
                         onChange={(e) => { setGenre(e.target.value) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
                     />
                 </label>
@@ -158,7 +156,7 @@ function EditBook() {
                         placeholder="the year"
                         value={publishDate}
                         onChange={(e) => { setPublishDate(Number(e.target.value)) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
                     />
                 </label>
@@ -171,7 +169,7 @@ function EditBook() {
                         placeholder="rating"
                         value={rating}
                         onChange={(e) => { setRating(Number(e.target.value)) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
                     />
                 </label>
@@ -184,7 +182,7 @@ function EditBook() {
                         placeholder="price of the book"
                         value={retailPrice}
                         onChange={(e) => { setRetailPrice(Number(e.target.value)) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
                     />
                 </label>
@@ -254,7 +252,7 @@ function EditBook() {
                         placeholder="enter the synopsis"
                         value={synopsis}
                         onChange={(e) => { setSynopsis(e.target.value) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
                     />
                 </label>
@@ -268,10 +266,11 @@ function EditBook() {
                         placeholder="name of the ISBN"
                         value={ISBN}
                         onChange={(e) => { setISBN(Number(e.target.value)) }}
-                        className="input md:w-screen"
+                        className="input w-xs md:w-xl"
                         required
                     />
                 </label>
+                </div>
                 <div className="flex flex-row">
                     <button className="btn-green">Save Changes</button>
                     <button className="btn-red">Cancel</button>
