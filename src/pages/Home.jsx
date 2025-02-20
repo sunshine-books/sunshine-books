@@ -27,7 +27,7 @@ function Home({booksToDisplay}) {
     //items-center md:items-start w-full md:w-auto text-center md:text-left
     return (
 
-        <div className="flex flex-col md:flex-row w-screen justify-center items-start pt-16 md:pt-24 md:gap-4 p-4">
+        <div className="flex flex-col md:flex-row justify-center items-center md:items-start pt-16 pb-8 md:pt-24 md:gap-4 w-full">
             {/* Show the latest book img*/}
             <div className="flex flex-col w-100 h-64">
                 <div className="relative group">
@@ -43,32 +43,29 @@ function Home({booksToDisplay}) {
                     <p className="text-white text-2xl">by {latestBook.author}</p>
                 </div>
                 </div>
-               
-                
-                <div className="text-center flex-col justify-items-stretch bg-orange-500  gap-2 p-4 w-xs md:w-auto block rounded-xl md:rounded-t-none rounded-b-xl">
+                <div className="flex flex-col justify-center items-center font-bold text-2xl px-4 py-8 rounded md:rounded-b-xl shadow-xl bg-orange-400">
                     <h1 className="text-4xl text-white font-bold mb-2">New in the collection</h1>
-                 
                     <Link
                         className="btn-green hover:bg-green-800"
                         to={`/books/${latestBook.id}`}>
                         More details
                     </Link>
-                </div>
-                  
+                </div> 
             </div>
 
-            {/* Show the rest of the books */}
-            <div className="flex flex-col content-between justify-items-stretch items-center gap-8">
-                <div className="flex flex-col p-4 h-48 w-xs md:w-xl text-center justify-center text-2xl font-bold gap-8 rounded shadow-xl">
+            
+            <div className="flex flex-col justify-center items-center gap-8">
+                {/* Adding new book */}
+                <div className="flex flex-col w-full font-bold text-2xl gap-4 px-8 py-4 rounded-xl shadow-xl">
                     Do you want to add a new book to our collection?
                     <Link to="/NewBook" className="btn-orange text-sm md:text-2xl">Register a Book</Link>
                 </div>
                 {/* Do the search */}
-                <div className="flex flex-col p-4 h-48 w-xs md:w-xl text-center justify-items-stretch text-2xl font-bold gap-8 rounded shadow-xl">
-                    Search for a book in our collection:
+                <div className="flex flex-col w-full font-bold text-2xl gap-4 px-4 py-8 rounded-xl shadow-xl">
+                    Search a book in our collection:
                     <SearchBooks booksToDisplay={booksToDisplay} />
                 </div>
-                
+                 {/* Showing other books */}
                 <ShowBooks arrOfBooks={booksToDisplay} latestBook={latestBook} />
 
             </div>
