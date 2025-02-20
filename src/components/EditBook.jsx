@@ -325,7 +325,6 @@ function EditBook({sendClickEventToParent}) {
                     
                 </div>
             </form>
-            <button onClick={handleNavigateHome} className="btn-red">Go to Home</button>
 
             
         </div>
