@@ -17,10 +17,6 @@ import NewBook from './pages/NewBook.jsx'
 import SearchBook from './pages/SearchBook.jsx'
 
 
-
-
-
-
 function App() {
   const [booksToDisplay, setBooksToDisplay] = useState(null);
 
@@ -62,10 +58,10 @@ function App() {
       <Navbar booksToDisplay={booksToDisplay} />
       
       <Routes>
-        <Route path="/" element={<Home booksToDisplay={booksToDisplay}/>} />
-        <Route path="/books/:bookId" element={<BookPageDetails sendClickEventToParent={clickEventFromEditPage}/>} />
+        <Route path="/" element={<Home booksToDisplay={booksToDisplay} sendClickEventToParent={clickEventFromEditPage}/>} />
+        <Route path="/books/:bookId" element={<BookPageDetails booksToDisplay={booksToDisplay} getBooksToDisplay={getBooksToDisplay} sendClickEventToParent={clickEventFromEditPage}/>} />
         <Route path="/books/edit/:bookId" element={<EditBook sendClickEventToParent={clickEventFromEditPage}  />} />
-        <Route path="/newBook" element={<NewBook />} />
+        <Route path="/newBook" element={<NewBook booksToDisplay={booksToDisplay} getBooksToDisplay={getBooksToDisplay} sendClickEventToParent={clickEventFromEditPage}/>} />
         <Route path="/searching" element={<SearchBook />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />

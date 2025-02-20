@@ -4,19 +4,16 @@ import { API_URL } from "../config/api";
 import { useEffect, useState } from "react";
 
 
-function BookPageDetails() {
+function BookPageDetails({getBooksToDisplay}) {
 
     const [book, setBook] = useState(null);
-
     const { bookId } = useParams();
-
     const navigate = useNavigate();
 
 
     useEffect(() => {
         getBook();
-    }, []);
-
+    }, [bookId]);
 
     const getBook = () => {
         axios.get(`${API_URL}/books/${bookId}.json`)
@@ -30,37 +27,13 @@ function BookPageDetails() {
     const deleteBook = () => {
         axios.delete(`${API_URL}/books/${bookId}.json`)
             .then(response => {
+                getBooksToDisplay();
+
                 navigate("/");
             })
             .catch((error) => console.log("Error deleting the book...", error));
     }
 
-    // const deleteBook = () => {
-    //     axios.delete(`${API_URL}/books/${bookId}.json`)
-    //     .then(response => {
-    //         const getBooksToDisplay = async () => {
-    //             try {
-    //               const response = await axios.get(`${API_URL}/books.json`)
-    //               const booksObj = response.data;
-    //               const booksArr = Object.keys(booksObj).map((id) => ({
-    //                   id,
-    //                   ...booksObj[id]
-    //               }))
-    //                  sendClickEventToParent(booksArr)
-    //                 console.log('books array after get:',booksArr)
-    //             }
-    //             catch(error){
-    //               console.log("ërror occured:",error)
-    //             }
-    //           }
-
-    //           getBooksToDisplay()
-
-           
-    //         navigate(`/`);
-    //     })
-    //         .catch((error) => console.log("Error deleting the book...", error));
-    // }
 
 
     //loading items 

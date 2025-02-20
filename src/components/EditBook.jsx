@@ -124,7 +124,6 @@ function EditBook({sendClickEventToParent}) {
              <h1 className="text-2xl ">Edit Details</h1>
             <div className="flex flex-row -sm:flex-col justify-center items-center w-screen md:gap-24"> 
                 <button onClick={()=>{navigate(`/`)}} className="btn-green">Back Home</button>
-               
                 <button onClick={handleNavigateHome} className="btn-red">Cancel</button>
                 
             </div>

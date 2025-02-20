@@ -1,8 +1,9 @@
 @import "tailwindcss"; 
 
+
 @tailwind base;
 @tailwind components;
-@tailwind unpm tilities;
+@tailwind utilities;
 
 body {
     font-family: 'Playfair Display', serif;

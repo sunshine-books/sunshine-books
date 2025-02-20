@@ -6,7 +6,7 @@ import { API_URL } from "../config/api";
 
 
 
-function NewBook() {
+function NewBook({getBooksToDisplay}) {
 
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
@@ -45,10 +45,13 @@ function NewBook() {
 
         axios.post(`${API_URL}/books.json`, newBook)
             .then(response => {
-                navigate("/");
+                getBooksToDisplay();
+                navigate(`/`); // we will love that this goes to detail page of new book
             })
             .catch(e => console.log("Error creating a new project...", e));
     }
+
+    
 
     return (
         <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full pt-24">
