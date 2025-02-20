@@ -10,8 +10,7 @@ import SearchBooks from "../components/SearchBooks";
 
 function Home({booksToDisplay}) {
 
-
-    
+   
 
     //loading items 
     if (booksToDisplay === null) {
@@ -21,11 +20,9 @@ function Home({booksToDisplay}) {
     }
 
     // Get the latest book (last item in the array)
+
     const latestBook = booksToDisplay[booksToDisplay.length - 1];
-    // Function to shuffle the array
-    const shuffleArray = (array) => {
-        return array.sort(() => Math.random() - 0.5);
-    };
+    
 
     //items-center md:items-start w-full md:w-auto text-center md:text-left
     return (
@@ -73,6 +70,7 @@ function Home({booksToDisplay}) {
                 </div>
                 
                 <ShowBooks arrOfBooks={booksToDisplay} latestBook={latestBook} />
+
             </div>
         </div>
     );

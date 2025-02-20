@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router";
 import { API_URL } from "../config/api";
 
 
-function EditBook() {
+function EditBook({sendClickEventToParent}) {
 
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
@@ -45,9 +45,35 @@ function EditBook() {
             .catch((error) => console.log("Error getting project details from the API...", error));
     }, [bookId]);
 
+    
+    // const getBookAfterEdit = async () => {
+    //         try {
+    //            const response = axios.get(`${API_URL}/books.json`)
+               
+    //                 const booksObj = response.data;
+    //                 const booksArr = Object.keys(booksObj).map((id) => ({
+    //                     id,
+    //                     ...booksObj[id]
+    //                 }))
+    //                 setBooksToDisplay(booksArr);
+    //                 console.log(booksArr)
+              
+                
+    //         }
+    //         catch(error){
+    //             console.log("ërror occured while receiving the book!", error)
+    //         }
+    // }
+
+
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
+       // getBookAfterEdit()
+
+        
 
         const newDetails = {
             ISBN: ISBN,
@@ -65,10 +91,33 @@ function EditBook() {
 
         axios.put(`${API_URL}/books/${bookId}.json`, newDetails)
             .then(response => {
+                const getBooksToDisplay = async () => {
+                    try {
+                      const response = await axios.get(`${API_URL}/books.json`)
+                      const booksObj = response.data;
+                      const booksArr = Object.keys(booksObj).map((id) => ({
+                          id,
+                          ...booksObj[id]
+                      }))
+                         sendClickEventToParent(booksArr)
+                        console.log('books array after get:',booksArr)
+                    }
+                    catch(error){
+                      console.log("ërror occured:",error)
+                    }
+                  }
+
+                  getBooksToDisplay()
+
+               
                 navigate(`/books/${bookId}`);
             })
             .catch(e => console.log("Error creating a new project...", e));
     }
+
+    const handleNavigateHome = () => {
+        navigate("/"); // Programmatically navigate to the home route
+      };
 
     return(
         <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full pt-24">
@@ -273,10 +322,12 @@ function EditBook() {
                 </div>
                 <div className="flex flex-row">
                     <button className="btn-green">Save Changes</button>
-                    <button className="btn-red">Cancel</button>
+                    
                 </div>
-                
             </form>
+            <button onClick={handleNavigateHome} className="btn-red">Go to Home</button>
+
+            
         </div>
     )
 }

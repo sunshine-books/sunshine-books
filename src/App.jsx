@@ -24,23 +24,38 @@ import SearchBook from './pages/SearchBook.jsx'
 function App() {
   const [booksToDisplay, setBooksToDisplay] = useState(null);
 
-
   //Getting the data from the API and convert to array
+
+  const clickEventFromEditPage = (data) => {
+    console.log("received data from edit submit btn:",data)
+    setBooksToDisplay(data)
+  }
+
+  const getBooksToDisplay = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/books.json`)
+      const booksObj = response.data;
+      const booksArr = Object.keys(booksObj).map((id) => ({
+          id,
+          ...booksObj[id]
+      }))
+        setBooksToDisplay(booksArr);
+         sendClickEventToParent(booksArr)
+
+        console.log('books array after get:',booksArr)
+    }
+    catch(error){
+      console.log("ërror occured:",error)
+    }
+  }
 
 
   useEffect(() => {
-      axios.get(`${API_URL}/books.json`)
-          .then(response => {
-              const booksObj = response.data;
-              const booksArr = Object.keys(booksObj).map((id) => ({
-                  id,
-                  ...booksObj[id]
-              }))
-              setBooksToDisplay(booksArr);
-              console.log(booksArr)
-          })
-          .catch(e => console.log("Error getting books from the API...", e));
+      getBooksToDisplay()
   }, []);
+
+
+
 
   return (
     <div className="flex flex-col max-w-screen min-h-screen">
@@ -48,8 +63,8 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home booksToDisplay={booksToDisplay}/>} />
-        <Route path="/books/:bookId" element={<BookPageDetails />} />
-        <Route path="/books/edit/:bookId" element={<EditBook />} />
+        <Route path="/books/:bookId" element={<BookPageDetails sendClickEventToParent={clickEventFromEditPage}/>} />
+        <Route path="/books/edit/:bookId" element={<EditBook sendClickEventToParent={clickEventFromEditPage}  />} />
         <Route path="/newBook" element={<NewBook />} />
         <Route path="/searching" element={<SearchBook />} />
         <Route path="/about" element={<About />} />
