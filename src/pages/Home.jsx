@@ -30,11 +30,15 @@ function Home({booksToDisplay}) {
     //items-center md:items-start w-full md:w-auto text-center md:text-left
     return (
 
-        <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-4 p-4">
+        <div className="flex flex-col md:flex-row w-screen justify-center items-start pt-16 md:pt-24 md:gap-4 p-4">
             {/* Show the latest book */}
-            <div className="latest-book"
-                style={{ backgroundImage: `url(${latestBook["cover-img"]})` }}>
-                <div className="text-center flex flex-col w-xl bg-orange-500 gap-2 p-4 block ">
+            <div className="flex flex-col w-100 h-64">
+                <img
+                    src={latestBook["cover-img"]}
+                    alt="Book Cover"
+                    className="hidden md:block md:size-auto object-contain rounded-t-xl "
+                />
+                <div className="text-center flex-col justify-items-stretch bg-orange-500  gap-2 p-4 w-xs md:w-auto block rounded-xl md:rounded-t-none rounded-b-xl">
                     <h1 className="text-4xl text-white font-bold">New in the collection</h1>
                     <h3 className=" text-white font-bold">{latestBook.title}</h3>
                     <p className="text-white">by {latestBook.author}</p>
@@ -47,19 +51,17 @@ function Home({booksToDisplay}) {
             </div>
 
             {/* Show the rest of the books */}
-            <div className="flex flex-col content-between p-8 gap-8">
-                <div className="flex flex-col p-4 h-48 justify-center text-center text-2xl font-bold gap-8 rounded shadow-xl">
+            <div className="flex flex-col content-between justify-items-stretch items-center gap-8">
+                <div className="flex flex-col p-4 h-48 w-xs md:w-xl text-center justify-center text-2xl font-bold gap-8 rounded shadow-xl">
                     Do you want to add a new book to our collection?
                     <Link to="/NewBook" className="btn-orange">Register a Book</Link>
                 </div>
                 {/* Do the search */}
-                <div className="flex flex-col content-between gap-8">
-                    <div className="flex flex-col p-8 h-48 justify-center text-center text-xl font-bold gap-8 rounded shadow-xl">
-                         {/* <ShowBooks /> */}
-                        Search for a book in our collection:
-                        <SearchBooks booksToDisplay={booksToDisplay} />
-                        </div>
+                <div className="flex flex-col p-4 h-48 w-xs md:w-xl text-center justify-items-stretch text-2xl font-bold gap-8 rounded shadow-xl">
+                    Search for a book in our collection:
+                    <SearchBooks booksToDisplay={booksToDisplay} />
                 </div>
+                
                 <ShowBooks arrOfBooks={booksToDisplay} latestBook={latestBook} />
             </div>
         </div>

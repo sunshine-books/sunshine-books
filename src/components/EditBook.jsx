@@ -71,11 +71,45 @@ function EditBook() {
     }
 
     return(
-        <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full p-4">
-            <h3 className="text-2xl">Edit Details</h3>
+        <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full p-16">
+            <div className="flex flex-col md:flex-row items-center justify-items-stretch">
+                <h1 className="text-2xl ">Edit Details</h1>
+                <div className="flex flex-row justify-end">
+                    <button className="btn-green">Save Changes</button>
+                    <button className="btn-red">Cancel</button>
+                </div>
+                    
+            </div>
 
-            <form className="flex flex-col gap-2 rounded-2xl overflow-hidden bg-white p-8 space-y-4 max-w-4xl mx-auto"
+            {/* Form to edit */}
+            <form className="flex flex-col w-screen justify-center items-start pt-16 md:pt-24 md:gap-4 p-4"
                 onSubmit={handleSubmit}>
+                <div>
+                    
+                    <label className="label-form">
+                        Cover Image:
+                        <input
+                            type="url"
+                            name="cover-img"
+                            placeholder="url for the cover..."
+                            value={URL}
+                            onChange={(e) => { setURL(e.target.value) }}
+                            className="input md:w-screen"
+                            required
+                        />
+                    </label>
+                    {URL ? (
+                    <img 
+                        src={URL} 
+                        alt="Cover Preview" 
+                        className="w-64 h-96 object-cover rounded-lg shadow-md"
+                    />
+                    ) : (
+                    <div className="w-full h-96 flex items-center justify-center mt-4 bg-gray-300 text-white rounded-lg shadow-md">
+                        Prev img here
+                    </div>
+                    )}
+                </div>
 
                 <label className="label-form">
                     Title:
@@ -98,19 +132,6 @@ function EditBook() {
                         placeholder="name of the author"
                         value={author}
                         onChange={(e) => { setAuthor(e.target.value) }}
-                        className="input md:w-screen"
-                        required
-                    />
-                </label>
-
-                <label className="label-form">
-                    Cover Image:
-                    <input
-                        type="url"
-                        name="cover-img"
-                        placeholder="url for the cover..."
-                        value={URL}
-                        onChange={(e) => { setURL(e.target.value) }}
                         className="input md:w-screen"
                         required
                     />
@@ -251,9 +272,11 @@ function EditBook() {
                         required
                     />
                 </label>
-
-                <button className="btn-green">Edit</button>
-                <button className="btn-green">Cancel</button>
+                <div className="flex flex-row">
+                    <button className="btn-green">Save Changes</button>
+                    <button className="btn-red">Cancel</button>
+                </div>
+                
             </form>
         </div>
     )

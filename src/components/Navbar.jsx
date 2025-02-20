@@ -14,7 +14,7 @@ function Navbar({booksToDisplay}) {
         
 
     return (
-        <nav className="bg-black text-white p-4">
+        <nav className="fixed top-0 z-50 w-screen bg-black text-white p-4">
             <div className="container mx-auto flex items-center justify-end">
                 {/* Icono para el menú en pantallas móviles */}
                 <button onClick={toggleMenu} className="block lg:hidden">

@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col max-w-screen min-h-screen">
       <Navbar booksToDisplay={booksToDisplay} />
       
       <Routes>

@@ -45,35 +45,33 @@ function BookPageDetails() {
 
 
     return (
-        <div className="BookDetailsPage">
+        <div className="flex flex-col justify-center items-center gap-2 md:gap-4 w-full md: p-4">
 
             {/* project details */}
-            <div key={book.id} >
-                <img src={book["cover-img"]} alt={book.title} />
-                <h1 className="book-title">{book.title}</h1>
-                <h2>Author: {book.author}</h2>
-                <p>Genre: {book.genre}</p>
-                <p>Publish Date: {book["publish-date"]}</p>
-                <p>Rating: {book.rating}</p>
-                <p>Price: {book["retail-price"]}</p>
-                <p>Synopsis: {book.synopsis}</p>
+            <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-4 p-4" key={book.id} >
+                <img className="w-sm object-cover" src={book["cover-img"]} alt={book.title} />
+                <div className="gap-4">
+                    <h1 className="book-title">{book.title}</h1>
+                    <h2 className="font-bold">Author: </h2><p className=""> {book.author}</p>
+                    <p>Genre: {book.genre}</p>
+                    <p>Publish Date: {book["publish-date"]}</p>
+                    <p>Rating: {book.rating}</p>
+                    <p>Price: {book["retail-price"]}</p>
+                    <p className="text-wrap">Synopsis: {book.synopsis}</p>
+                    <Link to={`/books/edit/${bookId}`}>
+                        <button  className="btn-green hover:bg-green-800" >Edit</button>
+                    </Link>
+                    <button className="btn-red hover:bg-green-800" onClick={deleteBook}>Delete</button>
+                </div>
+                
             </div>
+                <div className="flex flex-col content-between p-8 gap-8">
+                    <div className="flex flex-col p-4 h-48 justify-center text-center text-2xl font-bold gap-8 rounded shadow-xl">
+                        Do you want to add a new book to our collection?
+                        <Link to="/NewBook" className="btn-orange">Register a Book</Link>
+                    </div>
+                </div>
 
-            <br></br>
-
-            <Link to={`/NewBook`}>
-                <button>Register a new book</button>
-            </Link>
-
-            <br></br>
-
-            <Link to={`/books/edit/${bookId}`}>
-                <button>Edit</button>
-            </Link>
-
-            <br></br>
-
-            <button onClick={deleteBook}>Delete</button>
         </div>
     )
 }
