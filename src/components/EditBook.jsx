@@ -45,27 +45,6 @@ function EditBook({sendClickEventToParent}) {
             .catch((error) => console.log("Error getting project details from the API...", error));
     }, [bookId]);
 
-    
-    // const getBookAfterEdit = async () => {
-    //         try {
-    //            const response = axios.get(`${API_URL}/books.json`)
-               
-    //                 const booksObj = response.data;
-    //                 const booksArr = Object.keys(booksObj).map((id) => ({
-    //                     id,
-    //                     ...booksObj[id]
-    //                 }))
-    //                 setBooksToDisplay(booksArr);
-    //                 console.log(booksArr)
-              
-                
-    //         }
-    //         catch(error){
-    //             console.log("ërror occured while receiving the book!", error)
-    //         }
-    // }
-
-
 
 
 

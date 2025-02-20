@@ -5,6 +5,7 @@ import '../App.css'
 import { Link } from "react-router";
 import ShowBooks from "../components/ShowBooks";
 import SearchBooks from "../components/SearchBooks";
+import Notification from "../components/Notification";
 
 
 
@@ -28,6 +29,10 @@ function Home({booksToDisplay}) {
     return (
 
         <div className="flex flex-col md:flex-row justify-center items-center md:items-start pt-16 pb-8 md:pt-24 md:gap-4 w-full">
+             {/* notification message*/}
+             <div>
+             <Notification message="Book Deleted!" />
+             </div>
             {/* Show the latest book img*/}
             <div className="flex flex-col w-100 h-64">
                 <div className="relative group">

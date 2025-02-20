@@ -29,7 +29,7 @@ function BookPageDetails({getBooksToDisplay}) {
             .then(response => {
                 getBooksToDisplay();
 
-                navigate("/");
+                navigate("/?result=deleted");
             })
             .catch((error) => console.log("Error deleting the book...", error));
     }
