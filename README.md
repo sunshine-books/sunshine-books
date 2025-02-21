@@ -5,7 +5,7 @@ Sunshine Books is designed to provide an intuitive and seamless user experience 
 ## INSTRUCTIONS 📜
 
 - First step:
-    - Git Clone <a href="https://github.com/sunshine-books/sunshine-books.git"></a>
+    - Git Clone <a href="https://github.com/sunshine-books/sunshine-books.git">Link to clone</a>
 - Second step:
     - Run the command 'npm install'
 - Third step:
